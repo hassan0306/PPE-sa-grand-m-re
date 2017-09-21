@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<vols>
+    <vol numero="AIR5007">
+        <depart>Paris CDG - France</depart>
+        <arrivee>Dakar - Sénégal</arrivee>
+        <dateDepart>22/04/2011 12:00</dateDepart>
+        <dateArrivee>22/04/2011 17:00</dateArrivee>
+        <prix>560</prix>
+        <places>120</places>
+    </vol>
+    <vol numero="AIR5108">
+        <depart>Paris CDG - France</depart>
+        <arrivee>Dakar - Sénégal</arrivee>
+        <dateDepart>23/04/2011 13:00</dateDepart>
+        <dateArrivee>23/04/2011 18:20</dateArrivee>
+        <prix>600</prix>
+        <places>120</places>
+    </vol>
+</vols>
