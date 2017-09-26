@@ -11,7 +11,7 @@ and open the template in the editor.
     </head>
     <body>
         <div id="bandeau">
-        <img src='images/avion.jpeg'/>
+        <img src='image/avion.jpeg'/>
         </div>
         <div id="menu">
             <ul>
