@@ -14,15 +14,17 @@ and open the template in the editor.
             function getLesVols()
             {
 
-            // D�claration d'un tableau
+            
 
             $vols = array();
 
-              // Appel au fichier permettant la connection � la BD
+              
              require dirname(__FILE__)."/Connection.php";
-             // Selection de la base de donn�es et requete SQL
-                $requete="select numero,nomAero as 'a1',dateDepart,heureDepart,nomAeroport as 'a2' ,dateArrivee,heureArrivee,prix from aeroport  join vol join aeroport2 on numAeroport=arrivee and numAero=depart where nomAero=(select nomAero from aeroport where numAero=depart) and nomAeroport=(select nomAeroport from aeroport2 where numAeroport=arrivee)";
-            // Remplissage d'un tableau correspondant � chaque vol
+             
+                $requete="select numVols, A1.nomAeroport as aeDep, A2.nomAeroport as aeArr, dateDepart, dateArrivee, prix from vol 
+                        Join aeroport as A1 on vol.numAeroportDepart=A1.id
+                        JOIN aeroport as A2 on vol.numAeroportArrivee=A2.id";
+            
                 $bdd= connect();
                 $i=0;
                 try 
@@ -33,16 +35,14 @@ and open the template in the editor.
                     while($ligne=$sql->fetch(PDO::FETCH_OBJ))
                     { 
                         
-                        $unVol[$i]= ["numero"=>$ligne->numero,
-                            "depart"=>$ligne->a1,
+                        $unVol[$i]= ["numVols"=>$ligne->numVols,
+                            "aeDep"=>$ligne->aeDep,
                             "dateDepart"=>$ligne->dateDepart,
-                            "heureDepart"=>$ligne->heureDepart,
-                            "arrivee"=>$ligne->a2,
+                            "aeArr"=>$ligne->aeArr,
                             "dateArrivee"=>$ligne->dateArrivee,
-                            "heureArrivee"=>$ligne->heureArrivee,
                             "prix"=>$ligne->prix];
                         $i++;
-                    } 
+                    }
                     
                 }
                 catch(PDOException $e)
@@ -50,13 +50,13 @@ and open the template in the editor.
                     echo "Erreur dans la requète" . $e->getMessage();
                 }
 
-             // Remplissage du tableau multi-dimensionnel $vols avec chacun des vols
+             
 
                 for($r=0;$r<$i;$r++){
                     array_push($vols,$unVol[$r]);
                 }
 
-            // Retourner le tableau
+            
 
             return $vols;
 
@@ -64,15 +64,15 @@ and open the template in the editor.
             
             function getLesResa(){
                
-            // D�claration d'un tableau
+            
 
             $reservations = array();
 
-              // Appel au fichier permettant la connection � la BD
+              
              require dirname(__FILE__)."/Connection.php";
-             // Selection de la base de donn�es et requete SQL
+             
                 $requete="select * from reservation ";
-            // Remplissage d'un tableau correspondant � chaque reservation
+            
                 $bdd= connect();
                 $i=0;
                 try 
@@ -83,11 +83,11 @@ and open the template in the editor.
                     while($ligne=$sql->fetch(PDO::FETCH_OBJ))
                     { 
                         
-                        $uneResa[$i]= [
-                            "nomClient"=>$ligne->nomClient,
-                            "prenomClient"=>$ligne->prenomClient,
-                            "numero"=>$ligne->numVol,
-                            "qdPlace"=>$ligne->nbPlace
+                     $uneResa[$i]= [
+                            "nom"=>$ligne->nomClient,
+                            "prenom"=>$ligne->prenomClient,
+                            "numVols"=>$ligne->numVol,
+                            "place"=>$ligne->place
                         ];
                         $i++;
                     } 
@@ -98,13 +98,13 @@ and open the template in the editor.
                     echo "Erreur dans la requ�te" . $e->getMessage();
                 }
 
-             // Remplissage du tableau multi-dimensionnel $vols avec chacun des vols
+             
 
                 for($r=0;$r<$i;$r++){
                     array_push($reservations,$uneResa[$r]);
                 }
 
-            // Retourner le tableau
+            
 
             return $reservations;
             }
