@@ -16,7 +16,7 @@ and open the template in the editor.
         <div id="menu">
             <ul>
                 <li><a href='index.php?action=accueil'>Accueil</a></li>
-                <li><a href='index.php?action=voirVols'>Voir le catalogue des vols</a></li>
-                <li><a href='index.php?action=voirResa'>Voir les réservation </a></li>
+                <li><a href='index.php?action=voirVols'>Le Catalogue Des Vols</a></li>
+                <li><a href='index.php?action=voirResa'>Les Réservations </a></li>
             </ul>
         </div>

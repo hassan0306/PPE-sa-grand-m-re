@@ -38,7 +38,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                     <td>$prix</td>
-                    <td><a href='index.php?action=voirResa'>reservation</a></td>
+                    <td><a href='index.php?action=voirResa'>réserver</a></td>
                     </tr>
                 </table>";
             }

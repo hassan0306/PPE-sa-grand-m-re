@@ -47,7 +47,7 @@ and open the template in the editor.
                 }
                 catch(PDOException $e)
                 {
-                    echo "Erreur dans la requ�te" . $e->getMessage();
+                    echo "Erreur dans la requète" . $e->getMessage();
                 }
 
              // Remplissage du tableau multi-dimensionnel $vols avec chacun des vols
