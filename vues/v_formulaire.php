@@ -1,5 +1,5 @@
 <html>
-    <form method="post" action="v_reservation.php">
+    <form method="POST" action='index.php?action=voirResa'>
         <fieldset>
             <label for="nom">Nom</label>
             <input type="text" name="nom" id="nom" /></br>
