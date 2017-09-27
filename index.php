@@ -38,6 +38,9 @@ and open the template in the editor.
                     $lesVols = getLesVols();
                     include("vues/v_vols.php");
                     break;
+                
+                case 'form':
+                    include("vues/v_formulaire.php");
             }
 
             
