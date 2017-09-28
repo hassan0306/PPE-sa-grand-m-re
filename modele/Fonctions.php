@@ -84,10 +84,11 @@ and open the template in the editor.
                     { 
                         
                      $uneResa[$i]= [
-                            "nom"=>$ligne->nomClient,
-                            "prenom"=>$ligne->prenomClient,
-                            "numVols"=>$ligne->numVol,
-                            "place"=>$ligne->place
+                            "nom"=>$ligne->nom,
+                            "prenom"=>$ligne->prenom,
+                            "adresse"=>$ligne->adresse,
+                            "mail"=>$ligne->mail,
+                             "nombreVoyageur"=>$ligne->nombreVoyageur
                         ];
                         $i++;
                     } 
@@ -107,6 +108,13 @@ and open the template in the editor.
             
 
             return $reservations;
+            }
+            
+            function reserverVol()
+            {
+                // récup numéro vol
+                $numero = $_REQUEST["numero"];
+                return $numero;
             }
          ?>
         

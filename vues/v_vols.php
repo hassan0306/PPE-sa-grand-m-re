@@ -25,25 +25,27 @@
                 //$place=$unVol['place'];
 
 
-            echo""
-            . "<table>"
-                    . "<tr>"
-                         . "<td>$numVol</td>"
-                    ."</tr>"
-                    ."<tr>"
-                         ."<td>$numAeroportDepart</td>"
-                         ."<td>$dateDepart</td>"
-                    ."</tr>"
-                    ."<tr>"
-                         ."<td>$numAeroportArrivee</td>"
-                         ."<td>$dateArrivee</td>"
-                    ."</tr>"
-                    ."<tr>"     
-                         ."<td>$prix</td>"
-                         ."<td><a href='index.php?action=form'> reserver </a></td>"
-                    ."</tr>"
-                    ."</br>"
-            ."</table>";
+            
+            echo"<table border >
+                    
+                    <tr>
+                          <td>$numVol</td>
+                    </tr>
+                    <tr>
+                         <td>$numAeroportDepart</td>
+                         <td>$dateDepart</td>
+                    </tr>
+                    <tr>
+                         <td>$numAeroportArrivee</td>
+                         <td>$dateArrivee</td>
+                    </tr>
+                    <tr>
+                 
+                         <td>$prix</td>
+                         <td><a href='index.php?action=form&numero=$numVol'> reserver </a></td>
+                    </tr>
+                    </br>
+            </table>";
 
             }
             ?>

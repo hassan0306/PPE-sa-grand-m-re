@@ -13,22 +13,25 @@ and open the template in the editor.
         <?php
             foreach($reservations as $uneResa)
             {
-                $nomClient=$uneResa['nomClient'];
-                $prenomClient=$uneResa['prenomClient'];
-                $numeroVol=$uneResa['numero'];
-                $qdPlace=$uneResa['qdPlace'];
+                $nom=$uneResa['nom'];
+                $prenom=$uneResa['prenom'];
+                $adresse=$uneResa['adresse'];
+                $mail=$uneResa['mail'];
+                $nombreVoyageur=$uneResa['nombreVoyageur'];
                 echo"<table border>
                     <tr>
                         <th>Nom</th>
                         <th>Prenom</th>
-                        <th>Num Vol</th>
-                        <th>Nombre de places</th>
+                        <th>Adresse</th>
+                        <th>Mail</th>
+                        <th>Nombre De Voyageurs</th>
                     </tr>
                     <tr>
-                        <td>$nomClient</td>
-                        <td>$prenomClient</td>
-                        <td>$numeroVol</td>
-                        <td>$qdPlace</td>
+                        <td>$nom</td>
+                        <td>$prenom</td>
+                        <td>$adresse</td>
+                        <td>$mail</td>
+                        <td>$nombreVoyageur</td>    
                         <td>pdf</td>
                     </tr>
                 </table>";
