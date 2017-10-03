@@ -88,7 +88,8 @@ and open the template in the editor.
                             "prenom"=>$ligne->prenom,
                             "adresse"=>$ligne->adresse,
                             "mail"=>$ligne->mail,
-                             "nombreVoyageur"=>$ligne->nombreVoyageur
+                            "nombreVoyageur"=>$ligne->nombreVoyageur,
+                            "numVol"=>$ligne->numVol
                         ];
                         $i++;
                     } 
@@ -107,15 +108,61 @@ and open the template in the editor.
 
             
 
-            return $reservations;
+                return $reservations;
             }
             
-            function reserverVol()
+            function reserverVol() 
             {
-                // récup numéro vol
+            // récup numéro vol
                 $numero = $_REQUEST["numero"];
                 return $numero;
+            }   
+    
+            
+         
+            
+            function creerReservation()
+            {
+                require dirname(__FILE__)."/Connection.php";
+                $nom=$_POST['nom'];
+                $prenom=$_POST['prenom'];
+                $adresse=$_POST['adresse'];
+                $mail=$_POST['mail'];
+                $nombreVoyageur=$_POST['nombreVoyageur'];
+                $numVol=$_POST['numVol'];
+                
+             
+                $requete="INSERT INTO reservation values ('$nom','$prenom','$adresse','$mail','$nombreVoyageur','$numVol')";
+                $bdd= connect();
+                try 
+                {	
+                    $sql = $bdd->prepare($requete);
+                    $sql->execute();
+                    
+                }
+                catch(PDOException $e)
+                {
+                    echo "Erreur dans la requète" . $e->getMessage();
+                }
+               
             }
+            
+            /*function validerReservation() {
+                // récupération du numéro
+                $numero = $_REQUEST["numero"];
+                $reservations["numero"] =  $numero;
+                // faire de même les autres paramètres…
+
+                function initPanier() {
+                    if(!isset($_SESSION['reservations']))
+                        $_SESSION['reservations']= array();
+                }
+
+                function ajouterAuPanier($reservations) {    
+                    $_SESSION['reservations'][]= $reservations;
+                }
+            
+            }*/
          ?>
         
     </body>

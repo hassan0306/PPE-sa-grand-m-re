@@ -10,6 +10,16 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
+        <table border>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>Adresse</th>
+                        <th>Mail</th>
+                        <th>Nombre De Voyageurs</th>
+                        <th>Numéro De Vol</th>
+                        
+                    </tr>
         <?php
             foreach($reservations as $uneResa)
             {
@@ -18,24 +28,20 @@ and open the template in the editor.
                 $adresse=$uneResa['adresse'];
                 $mail=$uneResa['mail'];
                 $nombreVoyageur=$uneResa['nombreVoyageur'];
-                echo"<table border>
-                    <tr>
-                        <th>Nom</th>
-                        <th>Prenom</th>
-                        <th>Adresse</th>
-                        <th>Mail</th>
-                        <th>Nombre De Voyageurs</th>
-                    </tr>
+                $numVol=$uneResa['numVol'];
+                echo"
                     <tr>
                         <td>$nom</td>
                         <td>$prenom</td>
                         <td>$adresse</td>
                         <td>$mail</td>
-                        <td>$nombreVoyageur</td>    
+                        <td>$nombreVoyageur</td> 
+                        <td>$numVol</td>    
                         <td>pdf</td>
                     </tr>
-                </table>";
+                ";
             }
         ?>
+        </table>
     </body>
 </html>

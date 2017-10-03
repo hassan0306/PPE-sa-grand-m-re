@@ -1,7 +1,13 @@
-<html>
-    <form method="POST" action='index.php?action=voirResa'>
-        <fieldset>     
-            
+
+    <?php
+      $numVol=$_REQUEST['numero']
+    ?>
+    <html>
+           
+    <form method="POST" action='index.php?action=valideResa'>
+                 
+            <fieldset> 
+                <legend>Reservation du vol <?php echo $numVol ?></legend>
             <label for="nom">Nom</label>
             <input type="text" name="nom" id="nom" /></br></br>       
 
@@ -16,9 +22,9 @@
             
             <label for="nombreVoyageur">Nombre de Voyageurs</label>
             <input type="int" name="nombreVoyageur" id="nombreVoyageur" /></br></br>
-            
-            <input type="submit" value="Envoyer"  />
-            
-            
-            
+        
+   
+            <input type="submit" value="Valider"/>
+            <input type="submit" value="Anuler"/>
+          </fieldset>   
 </html>
