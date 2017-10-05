@@ -41,7 +41,6 @@ and open the template in the editor.
                     break;
                 
                 case 'reserver' :
-                $numero = reserverVol();
                 $lesVols = getLesVols();
                 include("vues/v_formulaireReservation.php");
                 break;
@@ -53,6 +52,7 @@ and open the template in the editor.
                 case 'valideResa':
                     include("modele/Fonctions.php");
                     creerReservation();
+                    include("vues/v_formulaire.php");
                     include("vues/v_valideResa.php");
                     break;
             }

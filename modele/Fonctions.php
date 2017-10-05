@@ -97,7 +97,7 @@ and open the template in the editor.
                 }
                 catch(PDOException $e)
                 {
-                    echo "Erreur dans la requ�te" . $e->getMessage();
+                    echo "Erreur dans la requète" . $e->getMessage();
                 }
 
              
@@ -111,12 +111,6 @@ and open the template in the editor.
                 return $reservations;
             }
             
-            function reserverVol() 
-            {
-            // récup numéro vol
-                $numero = $_REQUEST["numero"];
-                return $numero;
-            }   
     
             
          

@@ -42,7 +42,7 @@
                     <tr>
                  
                          <td>$prix</td>
-                         <td><a href='index.php?action=form&numero=$numVol'> reserver </a></td>
+                         <td><a href='index.php?action=form&numVol=$numVol'> reserver </a></td>
                     </tr>
                     </br>
             </table>";

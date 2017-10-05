@@ -1,11 +1,11 @@
 
-    <?php
-      $numVol=$_REQUEST['numero']
-    ?>
     <html>
            
     <form method="POST" action='index.php?action=valideResa'>
-                 
+ <?php
+      $numVol=$_REQUEST['numVol']
+              
+    ?>                 
             <fieldset> 
                 <legend>Reservation du vol <?php echo $numVol ?></legend>
             <label for="nom">Nom</label>
@@ -23,7 +23,7 @@
             <label for="nombreVoyageur">Nombre de Voyageurs</label>
             <input type="int" name="nombreVoyageur" id="nombreVoyageur" /></br></br>
         
-   
+            
             <input type="submit" value="Valider"/>
             <input type="submit" value="Anuler"/>
           </fieldset>   
