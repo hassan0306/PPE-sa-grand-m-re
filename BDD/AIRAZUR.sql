@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost:8889
--- Généré le :  Jeu 28 Septembre 2017 à 09:52
+-- Généré le :  Jeu 05 Octobre 2017 à 10:44
 -- Version du serveur :  5.6.34
 -- Version de PHP :  7.1.0
 
@@ -46,15 +46,35 @@ CREATE TABLE `reservation` (
   `prenom` varchar(40) DEFAULT NULL,
   `adresse` varchar(60) DEFAULT NULL,
   `mail` varchar(100) DEFAULT NULL,
-  `nombreVoyageur` int(20) DEFAULT NULL
+  `nombreVoyageur` int(20) DEFAULT NULL,
+  `numVol` varchar(8) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `reservation`
 --
 
-INSERT INTO `reservation` (`nom`, `prenom`, `adresse`, `mail`, `nombreVoyageur`) VALUES
-('Sartori', 'Sebastien', '15 Rue Du Bac', 'sebsarto@gmail.com', 15);
+INSERT INTO `reservation` (`nom`, `prenom`, `adresse`, `mail`, `nombreVoyageur`, `numVol`) VALUES
+('Khelil', 'Hassan', '50 B Rue Claude Decaen', 'khelilhassan2@gmail.com', 1, 'AIR5108'),
+('h', 'y', 'u', 'i', 1, ''),
+('A', 'B', 'C', 'D', 2, ''),
+('B', 'C', 'D', 'E', 2, ''),
+('A', 'Z', 'E', 'R', 1, ''),
+('AA', 'BB', 'CC', 'DD', 2, ''),
+('AA', 'BB', 'CC', 'DD', 2, ''),
+('AA', 'BB', 'CC', 'DD', 2, ''),
+('K', 'H', 'Kiffane', 'kh@g.com', 1, ''),
+('h', 'hv', 'khvf', 'oiglku', 3, ''),
+('khbv', 'jhvzdmk', 'ebv', 'jhfljbjhf', 54, ''),
+('khkerli', 'hvled', 'ykfk', 'kfkf', 2, ''),
+('khkerli', 'hvled', 'ykfk', 'kfkf', 2, ''),
+('khkerli', 'hvled', 'ykfk', 'kfkf', 2, ''),
+('', '', '', '', 0, ''),
+('efjk:b', 'khglk', 'hjlv', 'l', 2, ''),
+('', '', '', '', 0, ''),
+('', '', '', '', 0, ''),
+('', '', '', '', 0, ''),
+('', '', '', '', 0, '');
 
 -- --------------------------------------------------------
 
