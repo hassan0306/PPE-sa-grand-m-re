@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <meta charset="UTF-8">
         <title></title>
     </head>
     <body>
-        <table border>
+        
+            <table border>
                     <tr>
                         <th>Nom</th>
                         <th>Prenom</th>
@@ -20,27 +15,30 @@ and open the template in the editor.
                         <th>Numéro De Vol</th>
                         
                     </tr>
-        <?php
+            <?php
             foreach($reservations as $uneResa)
             {
-                $nom=$uneResa['nom'];
-                $prenom=$uneResa['prenom'];
-                $adresse=$uneResa['adresse'];
+                $nomClient=$uneResa['nomClient'];
+                $prenomClient=$uneResa['prenomClient'];
+                $numeroVol=$uneResa['numero'];
                 $mail=$uneResa['mail'];
-                $nombreVoyageur=$uneResa['nombreVoyageur'];
-                $numVol=$uneResa['numVol'];
+                $adresse=$uneResa['adresse'];
+                $qdPlace=$uneResa['qdPlace'];
                 echo"
                     <tr>
-                        <td>$nom</td>
-                        <td>$prenom</td>
-                        <td>$adresse</td>
+                        <td>$nomClient</td>
+                        <td>$prenomClient</td>
+                        <td>$numeroVol</td>
                         <td>$mail</td>
-                        <td>$nombreVoyageur</td> 
-                        <td>$numVol</td>    
-                        <td>pdf</td>
+                        <td>$adresse</td>
+                        <td>$qdPlace</td>
+                        <td><a href='index.php?action=pdfReservation'><img src='image/pdf.png' /></a></td>
                     </tr>
-                ";
+                    ";
+                
             }
+			
+					
         ?>
         </table>
     </body>

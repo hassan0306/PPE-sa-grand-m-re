@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost:8889
--- Généré le :  Jeu 05 Octobre 2017 à 10:44
+-- Généré le :  Mer 11 Octobre 2017 à 17:31
 -- Version du serveur :  5.6.34
 -- Version de PHP :  7.1.0
 
@@ -21,19 +21,18 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `aeroport` (
-  `id` int(11) NOT NULL,
-  `nomAeroport` varchar(80) DEFAULT NULL
+  `NUMAERO` int(11) NOT NULL,
+  `NOMAERO` varchar(128) DEFAULT NULL,
+  `PAYS` varchar(128) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `aeroport`
 --
 
-INSERT INTO `aeroport` (`id`, `nomAeroport`) VALUES
-(1, 'Paris CDG-France'),
-(2, 'Dakar-Sénégal'),
-(3, 'Marrakech-Maroc'),
-(4, 'Alger-Algérie');
+INSERT INTO `aeroport` (`NUMAERO`, `NOMAERO`, `PAYS`) VALUES
+(1, 'Paris CGG', 'France'),
+(2, 'Dakar', 'Sénégal');
 
 -- --------------------------------------------------------
 
@@ -42,39 +41,23 @@ INSERT INTO `aeroport` (`id`, `nomAeroport`) VALUES
 --
 
 CREATE TABLE `reservation` (
-  `nom` varchar(40) DEFAULT NULL,
-  `prenom` varchar(40) DEFAULT NULL,
-  `adresse` varchar(60) DEFAULT NULL,
-  `mail` varchar(100) DEFAULT NULL,
-  `nombreVoyageur` int(20) DEFAULT NULL,
-  `numVol` varchar(8) DEFAULT NULL
+  `numVol` varchar(128) NOT NULL,
+  `NUMRESA` int(11) NOT NULL,
+  `nomClient` varchar(128) DEFAULT NULL,
+  `prenomClient` varchar(128) DEFAULT NULL,
+  `mail` varchar(128) NOT NULL,
+  `adresse` varchar(128) NOT NULL,
+  `nbPlace` int(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `reservation`
 --
 
-INSERT INTO `reservation` (`nom`, `prenom`, `adresse`, `mail`, `nombreVoyageur`, `numVol`) VALUES
-('Khelil', 'Hassan', '50 B Rue Claude Decaen', 'khelilhassan2@gmail.com', 1, 'AIR5108'),
-('h', 'y', 'u', 'i', 1, ''),
-('A', 'B', 'C', 'D', 2, ''),
-('B', 'C', 'D', 'E', 2, ''),
-('A', 'Z', 'E', 'R', 1, ''),
-('AA', 'BB', 'CC', 'DD', 2, ''),
-('AA', 'BB', 'CC', 'DD', 2, ''),
-('AA', 'BB', 'CC', 'DD', 2, ''),
-('K', 'H', 'Kiffane', 'kh@g.com', 1, ''),
-('h', 'hv', 'khvf', 'oiglku', 3, ''),
-('khbv', 'jhvzdmk', 'ebv', 'jhfljbjhf', 54, ''),
-('khkerli', 'hvled', 'ykfk', 'kfkf', 2, ''),
-('khkerli', 'hvled', 'ykfk', 'kfkf', 2, ''),
-('khkerli', 'hvled', 'ykfk', 'kfkf', 2, ''),
-('', '', '', '', 0, ''),
-('efjk:b', 'khglk', 'hjlv', 'l', 2, ''),
-('', '', '', '', 0, ''),
-('', '', '', '', 0, ''),
-('', '', '', '', 0, ''),
-('', '', '', '', 0, '');
+INSERT INTO `reservation` (`numVol`, `NUMRESA`, `nomClient`, `prenomClient`, `mail`, `adresse`, `nbPlace`) VALUES
+('AIR5007', 1, 'hjnhj', 'njn,', 'n,n,', 'n,n,', 10),
+('AIR5007', 2, 'mama', 'momo', 'momo@gmail.com', 'qsdqs', 5),
+('AIR5007', 3, 'Khelil', 'Hassan', 'khelilhassan2@gmail.com', '50 B rue claude decaen', 2);
 
 -- --------------------------------------------------------
 
@@ -83,22 +66,24 @@ INSERT INTO `reservation` (`nom`, `prenom`, `adresse`, `mail`, `nombreVoyageur`,
 --
 
 CREATE TABLE `vol` (
-  `numVols` varchar(40) NOT NULL,
-  `dateDepart` datetime DEFAULT NULL,
-  `dateArrivee` datetime DEFAULT NULL,
-  `prix` float DEFAULT NULL,
-  `place` int(11) DEFAULT NULL,
-  `numAeroportDepart` int(11) DEFAULT NULL,
-  `numAeroportArrivee` int(11) DEFAULT NULL
+  `NUMERO` varchar(128) NOT NULL,
+  `depart` int(50) NOT NULL,
+  `arrivee` int(50) NOT NULL,
+  `DATEDEPART` date DEFAULT NULL,
+  `DATEARRIVEE` date DEFAULT NULL,
+  `HEUREDEPART` time DEFAULT NULL,
+  `HEUREARRIVEE` time DEFAULT NULL,
+  `PRIX` decimal(13,2) DEFAULT NULL,
+  `PLACES` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `vol`
 --
 
-INSERT INTO `vol` (`numVols`, `dateDepart`, `dateArrivee`, `prix`, `place`, `numAeroportDepart`, `numAeroportArrivee`) VALUES
-('AIR5007', '2011-04-22 12:00:00', '2011-04-22 17:00:00', 560, 120, 1, 2),
-('AIR5108', '2011-04-23 13:00:00', '2011-04-23 18:20:00', 600, 120, 1, 2);
+INSERT INTO `vol` (`NUMERO`, `depart`, `arrivee`, `DATEDEPART`, `DATEARRIVEE`, `HEUREDEPART`, `HEUREARRIVEE`, `PRIX`, `PLACES`) VALUES
+('AIR5007', 1, 2, '2011-04-22', '2011-04-22', '12:00:00', '17:00:00', '560.00', 120),
+('AIR5108', 1, 2, '2011-04-23', '2011-04-23', '13:00:00', '18:20:00', '600.00', 120);
 
 --
 -- Index pour les tables exportées
@@ -108,23 +93,46 @@ INSERT INTO `vol` (`numVols`, `dateDepart`, `dateArrivee`, `prix`, `place`, `num
 -- Index pour la table `aeroport`
 --
 ALTER TABLE `aeroport`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`NUMAERO`);
+
+--
+-- Index pour la table `reservation`
+--
+ALTER TABLE `reservation`
+  ADD PRIMARY KEY (`numVol`,`NUMRESA`),
+  ADD KEY `I_FK_RESERVATION_VOL` (`numVol`),
+  ADD KEY `NUMRESA` (`NUMRESA`);
 
 --
 -- Index pour la table `vol`
 --
 ALTER TABLE `vol`
-  ADD PRIMARY KEY (`numVols`),
-  ADD KEY `numAeroportDepart` (`numAeroportDepart`),
-  ADD KEY `numAeroportArrivee` (`numAeroportArrivee`);
+  ADD PRIMARY KEY (`NUMERO`),
+  ADD KEY `I_FK_VOL_AEROPORT` (`depart`),
+  ADD KEY `I_FK_VOL_AEROPORT1` (`arrivee`);
 
+--
+-- AUTO_INCREMENT pour les tables exportées
+--
+
+--
+-- AUTO_INCREMENT pour la table `reservation`
+--
+ALTER TABLE `reservation`
+  MODIFY `NUMRESA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Contraintes pour les tables exportées
 --
 
 --
+-- Contraintes pour la table `reservation`
+--
+ALTER TABLE `reservation`
+  ADD CONSTRAINT `reservation_ibfk_1` FOREIGN KEY (`numVol`) REFERENCES `vol` (`NUMERO`);
+
+--
 -- Contraintes pour la table `vol`
 --
 ALTER TABLE `vol`
-  ADD CONSTRAINT `vol_ibfk_1` FOREIGN KEY (`numAeroportDepart`) REFERENCES `aeroport` (`id`),
-  ADD CONSTRAINT `vol_ibfk_2` FOREIGN KEY (`numAeroportArrivee`) REFERENCES `aeroport` (`id`);
+  ADD CONSTRAINT `vol_ibfk_1` FOREIGN KEY (`depart`) REFERENCES `aeroport` (`NUMAERO`),
+  ADD CONSTRAINT `vol_ibfk_2` FOREIGN KEY (`arrivee`) REFERENCES `aeroport` (`NUMAERO`);
