@@ -7,7 +7,8 @@
     <body>
         <?php
 			session_start();
-			
+        		require_once("modele/f
+			onctions.php");
 			
 		
             if(!isset($_REQUEST['action']))
